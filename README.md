@@ -14,6 +14,9 @@ JavaScript
 React.js  
 JSX  
 
+## Component Diagram
+
+<img src="./taproom.drawio.svg" width="65%">
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
