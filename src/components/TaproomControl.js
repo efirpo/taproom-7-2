@@ -10,6 +10,18 @@ class TaproomControl extends React.Component {
       editFormVisible: false
     }
   }
+  handleAddingNewKegToStock = (keg) => {
+    const newMasterKegList = this.state.masterKegList.concat(keg);
+    this.setState({
+      masterKegList: newMasterKegList
+    })
+  }
+  handleSelectingKeg = (id) => {
+    const thisKeg = this.state.masterKegList.filter(e => e.id === id)[0]
+    this.setState({
+      selectedKeg: thisKeg
+    })
+  }
 
   render() {
     let kegSelected = null;
@@ -20,8 +32,8 @@ class TaproomControl extends React.Component {
 
     return (
       <React.Fragment>
-        <AddKeg />
-        <KegList />
+        <AddKeg onNewKegCreation={this.handleAddingKegToStock} />
+        <KegList kegList={this.state.masterKegList} onKegSelect={this.handleSelectingKeg} />
         {kegSelected}
       </React.Fragment>
     )
