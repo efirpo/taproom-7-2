@@ -19,7 +19,14 @@ const listPageStyles = {
   display: "flex",
   flexDirection: "column",
   justifyContent: "flex-start",
-  flexWrap: "wrap"
+  flexWrap: "wrap",
+  width: "50%"
+}
+
+const listStyles = {
+  display: "flex",
+  flexFlow: "row wrap",
+  flexShrink: "2"
 }
 
 class TaproomControl extends React.Component {
@@ -90,8 +97,12 @@ class TaproomControl extends React.Component {
       <React.Fragment>
         <div id='full-page' style={fullPageStyles}>
           <div id='add-and-list' style={listPageStyles}>
-            <AddKeg onNewKegCreation={this.handleAddingNewKegToStock} />
-            <KegList kegList={this.state.masterKegList} onKegSelect={this.handleSelectingKeg} onDrawPint={this.handleDrawingPint} />
+            <div>
+              <AddKeg onNewKegCreation={this.handleAddingNewKegToStock} />
+            </div>
+            <div id="list" style={listStyles}>
+              <KegList kegList={this.state.masterKegList} onKegSelect={this.handleSelectingKeg} onDrawPint={this.handleDrawingPint} />
+            </div>
           </div>
           <div id='details-and-edit' style={detailPageStyles}>
             {kegSelected}

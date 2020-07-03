@@ -10,12 +10,11 @@ const listStyles = {
 function Keg(props) {
   return (
     <React.Fragment>
-      <div id="list" style={listStyles}>
-        <div onClick={() => props.onKegSelect(props.id)}>
-          <h2>{props.name}</h2>
-          <h3>Pints remaining: {props.volumeHeld}<button onClick={() => props.onDrawPint(props.id)}>+</button></h3>
 
-        </div>
+      <div onClick={() => props.onKegSelect(props.id)}>
+        <h2>{props.name}</h2>
+        <h3>Pints remaining: {props.volumeHeld}<button onClick={() => props.onDrawPint(props.id)}>+</button></h3>
+
       </div>
     </React.Fragment>
   )
