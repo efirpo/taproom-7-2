@@ -35,9 +35,11 @@ class TaproomControl extends React.Component {
 
   handleClickingEditSubmit = (keg) => {
     console.table(keg)
-    const newMasterKegList = this.state.masterKegList.map((obj, index) => (obj.id === keg.id ? Object.assign({}, this.state.masterKegList[index], { keg }) : console.log("Error, fool!")))
+    const newMasterKegList = this.state.masterKegList.map((obj, index) => (obj.id === keg.id ? Object.assign({}, this.state.masterKegList[index], keg) : console.log("Error, fool!")))
+    console.table(newMasterKegList)
     this.setState({
-      masterKegList: newMasterKegList
+      masterKegList: newMasterKegList,
+      selectedKeg: keg
     })
   }
 
@@ -46,13 +48,10 @@ class TaproomControl extends React.Component {
     let kegSelected = null;
 
     if (this.state.selectedKeg !== null) {
-      if (this.state.editFormVisible) {
-        kegSelected = <KegDetail keg={this.state.selectedKeg} onClickingEdit={this.handleClickingShowEdit} editKegForm={<KegForm submitHandler={this.handleClickingEditSubmit} buttonText="Edit this Keg" keg={this.state.selectedKeg} />} />
-      } else {
-        kegSelected = <KegDetail keg={this.state.selectedKeg} onClickingEdit={this.handleClickingShowEdit} />
-      }
-
+      kegSelected = <KegDetail keg={this.state.selectedKeg} onClickingToEdit={this.handleClickingShowEdit} onEditSubmit={this.handleClickingEditSubmit} />
     }
+
+
 
 
     return (
@@ -66,7 +65,7 @@ class TaproomControl extends React.Component {
             {kegSelected}
           </div>
         </div>
-      </React.Fragment>
+      </React.Fragment >
     )
   }
 }

@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 function KegForm(props) {
+
   return (
     <React.Fragment>
       <form onSubmit={props.submitHandler}>
