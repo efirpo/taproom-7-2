@@ -83,7 +83,7 @@ class TaproomControl extends React.Component {
     const volumeValue = thisKeg.volumeHeld
     const newVolume = { volumeHeld: volumeValue - 1 }
     if (thisKeg.volumeHeld > 0) {
-      const newMasterKegList = this.state.masterKegList.map((obj, index) => (obj === thisKeg ? Object.assign(this.state.masterKegList[index], newVolume) : console.log("pint error, fool!")))
+      const newMasterKegList = this.state.masterKegList.map((obj, index) => (obj.name === thisKeg.name ? Object.assign(this.state.masterKegList[index], newVolume) : console.log("pint error, fool!")))
       this.setState({
         masterKegList: newMasterKegList
       })
