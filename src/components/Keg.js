@@ -15,7 +15,7 @@ function Keg(props) {
     <React.Fragment>
 
       <div style={kegStyles}>
-        <h2 onClick={() => props.onKegSelect(props.id)}>{props.name}</h2>
+        <h2 style={kegHeaderStyles} onClick={() => props.onKegSelect(props.id)}>{props.name}</h2>
         <h3>Pints remaining: {props.volumeHeld}<button onClick={() => props.onDrawPint(props.id)}>-</button></h3>
 
       </div>
