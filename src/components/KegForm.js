@@ -9,18 +9,18 @@ function KegForm(props) {
         <input
           type='text'
           name='name'
-          placeholder='Potion Name' />
+          placeholder='Potion Name' /><br />
         <input
           type='text'
           name='brewer'
-          placeholder='Brewer of Potion' />
+          placeholder='Brewer of Potion' /><br />
         <input
           type='number'
           name='price'
-          placeholder='Cost per draught' />
+          placeholder='Cost per draught' /><br />
         <textarea
           name='description'
-          placeholder='Describe effects of yon brew' />
+          placeholder='Describe effects of yon brew' /><br />
         <button type='submit'>{props.buttonText}</button>
       </form>
     </React.Fragment>

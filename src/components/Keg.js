@@ -1,12 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+const listStyles = {
+  display: "flex",
+  flexFlow: "row wrap",
+  backgroundColor: "#04a5fe"
+}
+
 function Keg(props) {
   return (
     <React.Fragment>
-      <div onClick={() => props.onKegSelect(props.id)}>
-        <h2>{props.name}</h2>
-        <h3>Pints remaining: {props.volumeHeld}<button onClick={() => props.onDrawPint(props.id)}>+</button></h3>
+      <div id="list" style={listStyles}>
+        <div onClick={() => props.onKegSelect(props.id)}>
+          <h2>{props.name}</h2>
+          <h3>Pints remaining: {props.volumeHeld}<button onClick={() => props.onDrawPint(props.id)}>+</button></h3>
+
+        </div>
       </div>
     </React.Fragment>
   )
