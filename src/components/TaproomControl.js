@@ -2,7 +2,6 @@ import React from 'react';
 import AddKeg from './AddKeg';
 import KegList from './KegList';
 import KegDetail from './KegDetail';
-import KegForm from './KegForm';
 
 
 class TaproomControl extends React.Component {
@@ -50,6 +49,15 @@ class TaproomControl extends React.Component {
     })
   }
 
+  handleDrawingPint = (id) => {
+    const newMasterKegList = this.state.masterKegList.map((obj, index) => (obj.id === id ? Object.assign({}, this.state.masterKegList[index], { volumeHeld: this.state.masterKegList[index].volumeHeld - 1 }) : console.log("pint error, fool!")))
+    this.setState({
+      masterKegList: newMasterKegList
+    })
+
+
+  }
+
 
   render() {
     let kegSelected = null;
@@ -66,7 +74,7 @@ class TaproomControl extends React.Component {
         <div id='full-page'>
           <div id='add-and-list'>
             <AddKeg onNewKegCreation={this.handleAddingNewKegToStock} />
-            <KegList kegList={this.state.masterKegList} onKegSelect={this.handleSelectingKeg} />
+            <KegList kegList={this.state.masterKegList} onKegSelect={this.handleSelectingKeg} onDrawPint={this.handleDrawingPint} />
           </div>
           <div id='details-and-edit'>
             {kegSelected}

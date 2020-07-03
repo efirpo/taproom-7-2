@@ -28,6 +28,7 @@ class KegDetail extends React.Component {
       deleteKegPrompt: !this.state.deleteKegPrompt
     })
   }
+
   render() {
     let deleteKegYouSure = false;
     let editKegForm = null;
@@ -38,6 +39,7 @@ class KegDetail extends React.Component {
     if (this.state.deleteKegPrompt) {
       deleteKegYouSure = <h2 onClick={() => this.props.onClickingDelete(this.props.keg.id)}>Are you sure? This action cannot be undone. Click here to delete.</h2>
     }
+
     return (
       <React.Fragment>
         <h2>{this.props.keg.name}</h2>
