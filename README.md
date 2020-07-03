@@ -20,7 +20,7 @@ JSX
 
 ## Known Bugs
 
-The function to reduce the number of pints in each keg bugs out on any keg except the first one you click, and I haven't figured out why yet.
+The function to reduce the number of pints in each keg bugs out on any keg except the first one you create, and I haven't figured out why yet.
 
 ## Setup
 
