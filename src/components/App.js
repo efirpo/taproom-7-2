@@ -1,4 +1,5 @@
 import React from 'react';
+import TaproomControl from './TaproomControl';
 
 
 function App() {

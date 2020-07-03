@@ -1,11 +1,14 @@
 import React from 'react';
+import AddKeg from './AddKeg';
+import KegList from './KegList';
+import KegDetail from './KegDetail';
 
 
 class TaproomControl extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      masterKegList =[],
+      masterKegList: [],
       selectedKeg: null,
       editFormVisible: false
     }
@@ -32,7 +35,7 @@ class TaproomControl extends React.Component {
 
     return (
       <React.Fragment>
-        <AddKeg onNewKegCreation={this.handleAddingKegToStock} />
+        <AddKeg onNewKegCreation={this.handleAddingNewKegToStock} />
         <KegList kegList={this.state.masterKegList} onKegSelect={this.handleSelectingKeg} />
         {kegSelected}
       </React.Fragment>
