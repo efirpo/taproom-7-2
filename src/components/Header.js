@@ -1,9 +1,14 @@
 import React from 'react';
 import header from '../img/header.png'
 
+const headerStyles = {
+  backgroundColor: "#ccd8ff"
+}
 function Header() {
   return (
-    <img src={header} alt="header image" />
+    <div style={headerStyles}>
+      <img src={header} alt="header image" />
+    </div>
   )
 }
 

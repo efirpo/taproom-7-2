@@ -7,7 +7,7 @@ const fullPageStyles = {
   display: "flex",
   flexDirection: "row",
   justifyContent: "space-around",
-  backgroundColor: "#4a4a4a"
+  backgroundColor: "#ccd8ff"
 }
 
 const detailPageStyles = {
@@ -26,7 +26,7 @@ const listPageStyles = {
 const listStyles = {
   display: "flex",
   flexFlow: "row wrap",
-  flexShrink: "2"
+  flexShrink: "2",
 }
 
 class TaproomControl extends React.Component {
@@ -79,10 +79,11 @@ class TaproomControl extends React.Component {
   handleDrawingPint = (id) => {
     const thisKeg = this.state.masterKegList.filter(e => e.id === id)[0]
     if (thisKeg.volumeHeld > 0) {
-      const newMasterKegList = this.state.masterKegList.map((obj, index) => (obj.id === id ? Object.assign({}, this.state.masterKegList[index], { volumeHeld: this.state.masterKegList[index].volumeHeld - 1 }) : console.log("pint error, fool!")))
+      const newMasterKegList = this.state.masterKegList.map((obj, index) => (obj.id === id ? Object.assign({}, this.state.masterKegList[index], { ...obj, volumeHeld: this.state.masterKegList[index].volumeHeld - 1 }) : console.log("pint error, fool!")))
       this.setState({
         masterKegList: newMasterKegList
       })
+      console.table(this.state.masterKegList)
     }
   }
 
