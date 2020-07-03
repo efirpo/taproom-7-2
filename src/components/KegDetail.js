@@ -6,7 +6,8 @@ class KegDetail extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      viewKegForm: false
+      viewKegForm: false,
+      deleteKegPrompt: false
     }
   }
   handleEditFormSubmission = (event) => {
@@ -21,12 +22,21 @@ class KegDetail extends React.Component {
       viewKegForm: !this.state.viewKegForm
     })
   }
-  render() {
 
+  onClickingToDelete = () => {
+    this.setState({
+      deleteKegPrompt: !this.state.deleteKegPrompt
+    })
+  }
+  render() {
+    let deleteKegYouSure = false;
     let editKegForm = null;
 
     if (this.state.viewKegForm) {
-      editKegForm = <KegForm submitHandler={this.handleEditFormSubmission} buttonText="Edit this brew." />
+      editKegForm = <KegForm submitHandler={this.handleEditFormSubmission} buttonText="Submit edits." />
+    }
+    if (this.state.deleteKegPrompt) {
+      deleteKegYouSure = <h2 onClick={() => this.props.onClickingDelete(this.props.keg.id)}>Are you sure? This action cannot be undone. Click here to delete.</h2>
     }
     return (
       <React.Fragment>
@@ -35,8 +45,10 @@ class KegDetail extends React.Component {
         <p><em>{this.props.keg.description}</em></p>
         <p>Price per draught: <strong>{this.props.keg.price} gp</strong></p>
         <br /><br /><hr />
-        <button onClick={this.onClickingToEdit}>Edit this Brew</button>
+        <button onClick={this.onClickingToEdit}>Edit this Brew.</button>
         {editKegForm}
+        <button onClick={this.onClickingToDelete}>Delete this Brew.</button>
+        {deleteKegYouSure}
 
       </React.Fragment>
     )
@@ -45,9 +57,7 @@ class KegDetail extends React.Component {
 }
 KegDetail.propTypes = {
   keg: PropTypes.object,
-  onClickingToEdit: PropTypes.func,
   onClickingDelete: PropTypes.func,
-  editFormVisible: PropTypes.bool,
   onEditSubmit: PropTypes.func
 }
 export default KegDetail;
