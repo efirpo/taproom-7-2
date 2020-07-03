@@ -28,7 +28,8 @@ function KegForm(props) {
 
 KegForm.propTypes = {
   submitHandler: PropTypes.func,
-  buttonText: PropTypes.string
+  buttonText: PropTypes.string,
+  keg: PropTypes.object
 }
 
 export default KegForm;

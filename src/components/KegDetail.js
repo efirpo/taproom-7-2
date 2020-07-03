@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import KegForm from './KegForm';
+// import KegForm from './KegForm';
 
 function KegDetail(props) {
 
