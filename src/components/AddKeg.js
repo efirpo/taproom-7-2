@@ -7,7 +7,7 @@ function AddKeg(props) {
 
   function handleNewKegFormSubmission(event) {
     event.preventDefault();
-    props.onNewKegCreation({ name: event.target.name.value, brewer: event.target.brewer.value, price: event.target.price.value, description: event.target.description.value, id: v4(), volumeHeld: 124 })
+    props.onNewKegCreation({ brew: event.target.brew.value, brewer: event.target.brewer.value, price: event.target.price.value, description: event.target.description.value, id: v4(), volumeHeld: 124 })
   }
   return (
     <React.Fragment>

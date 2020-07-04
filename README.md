@@ -18,10 +18,6 @@ JSX
 
 <img src="./taproom.svg" width="65%">
 
-## Known Bugs
-
-The function to reduce the number of pints in each keg bugs out on any keg except the first one you create, and I haven't figured out why yet.
-
 ## Setup
 
 1. Download this repository.

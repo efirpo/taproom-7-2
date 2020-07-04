@@ -13,7 +13,7 @@ class KegDetail extends React.Component {
   handleEditFormSubmission = (event) => {
     event.preventDefault();
     this.props.onEditSubmit({
-      name: event.target.name.value, brewer: event.target.brewer.value, description: event.target.description.value, price: event.target.price.value, id: this.props.keg.id
+      brew: event.target.brew.value, brewer: event.target.brewer.value, description: event.target.description.value, price: event.target.price.value, id: this.props.keg.id
     })
 
   }
@@ -42,7 +42,7 @@ class KegDetail extends React.Component {
 
     return (
       <React.Fragment>
-        <h2>{this.props.keg.name}</h2>
+        <h2>{this.props.keg.brew}</h2>
         <p>Brewed by: {this.props.keg.brewer}</p>
         <p><em>{this.props.keg.description}</em></p>
         <p>Price per draught: <strong>{this.props.keg.price} gp</strong></p>

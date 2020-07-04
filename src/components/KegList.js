@@ -12,7 +12,7 @@ function KegList(props) {
         <Keg
           onKegSelect={props.onKegSelect}
           onDrawPint={props.onDrawPint}
-          name={keg.name}
+          brew={keg.brew}
           brewer={keg.brewer}
           price={keg.price}
           description={keg.description}

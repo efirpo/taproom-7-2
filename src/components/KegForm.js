@@ -8,7 +8,7 @@ function KegForm(props) {
       <form onSubmit={props.submitHandler}>
         <input
           type='text'
-          name='name'
+          name='brew'
           placeholder='Potion Name' /><br />
         <input
           type='text'

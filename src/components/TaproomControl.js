@@ -60,7 +60,7 @@ class TaproomControl extends React.Component {
 
   handleClickingEditSubmit = (keg) => {
     // console.table(keg)
-    const newMasterKegList = this.state.masterKegList.map((obj, index) => (obj.id === keg.id ? Object.assign({}, this.state.masterKegList[index], keg) : console.log("Error, fool!")))
+    const newMasterKegList = this.state.masterKegList.map((obj, index) => (obj.id === keg.id ? Object.assign({}, this.state.masterKegList[index], keg) : obj))
     // console.table(newMasterKegList)
     this.setState({
       masterKegList: newMasterKegList,
@@ -82,14 +82,18 @@ class TaproomControl extends React.Component {
     console.table(thisKeg)
     const volumeValue = thisKeg.volumeHeld
     const newVolume = { volumeHeld: volumeValue - 1 }
+    let newMasterKegList = this.state.masterKegList;
     if (thisKeg.volumeHeld > 0) {
-      const newMasterKegList = this.state.masterKegList.map((obj, index) => (obj.name === thisKeg.name ? Object.assign(this.state.masterKegList[index], newVolume) : console.log("pint error, fool!")))
-      this.setState({
-        masterKegList: newMasterKegList
-      })
+      newMasterKegList = this.state.masterKegList.map((obj, index) => (obj.id === thisKeg.id ? Object.assign(this.state.masterKegList[index], newVolume) : obj))
+
       console.table("KegList after func: ")
       console.table(this.state.masterKegList)
     }
+    this.setState({
+      masterKegList: newMasterKegList
+    })
+    console.log("After if: ")
+    console.table(this.state.masterKegList)
   }
 
   render() {
@@ -98,6 +102,7 @@ class TaproomControl extends React.Component {
     if (this.state.selectedKeg !== null) {
       kegSelected = <KegDetail keg={this.state.selectedKeg} onClickingToEdit={this.handleClickingShowEdit} onEditSubmit={this.handleClickingEditSubmit} onClickingDelete={this.handleClickingDelete} />
     }
+    // KegList.forceUpdate(this.handleDrawingPint)
 
     return (
       <React.Fragment>
