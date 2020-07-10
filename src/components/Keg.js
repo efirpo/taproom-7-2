@@ -2,12 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const kegStyles = {
-  margin: "2%"
-
+  margin: "2%",
 }
 
 const kegHeaderStyles = {
-  fontFamily: "cursive"
+  fontFamily: "cursive",
+  "&:hover": {
+    color: "#4b78fa"
+  }
 }
 
 function Keg(props) {
@@ -27,6 +29,7 @@ Keg.propTypes = {
   brew: PropTypes.string.isRequired,
   brewer: PropTypes.string.isRequired,
   price: PropTypes.number,
+  volumeHeld: PropTypes.number,
   description: PropTypes.string,
   id: PropTypes.string,
   onKegSelect: PropTypes.func,

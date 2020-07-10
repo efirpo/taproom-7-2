@@ -43,7 +43,7 @@ class TaproomControl extends React.Component {
     const newMasterKegList = this.state.masterKegList.concat(keg);
     this.setState({
       masterKegList: newMasterKegList
-    }, () => console.log(this.state.masterKegList))
+    })
   }
   handleSelectingKeg = (id) => {
     const thisKeg = this.state.masterKegList.filter(e => e.id === id)[0]
@@ -52,16 +52,8 @@ class TaproomControl extends React.Component {
     })
   }
 
-  handleClickingShowEdit = () => {
-    this.setState({
-      editFormVisible: !this.state.editFormVisible
-    })
-  }
-
   handleClickingEditSubmit = (keg) => {
-    // console.table(keg)
     const newMasterKegList = this.state.masterKegList.map((obj, index) => (obj.id === keg.id ? Object.assign({}, this.state.masterKegList[index], keg) : obj))
-    // console.table(newMasterKegList)
     this.setState({
       masterKegList: newMasterKegList,
       selectedKeg: keg
@@ -78,29 +70,22 @@ class TaproomControl extends React.Component {
 
   handleDrawingPint = (id) => {
     const thisKeg = this.state.masterKegList.filter(e => e.id === id)[0]
-    console.table("Before if:")
-    console.table(thisKeg)
     const volumeValue = thisKeg.volumeHeld
     const newVolume = { volumeHeld: volumeValue - 1 }
     let newMasterKegList = this.state.masterKegList;
     if (thisKeg.volumeHeld > 0) {
       newMasterKegList = this.state.masterKegList.map((obj, index) => (obj.id === thisKeg.id ? Object.assign(this.state.masterKegList[index], newVolume) : obj))
-
-      console.table("KegList after func: ")
-      console.table(this.state.masterKegList)
     }
     this.setState({
       masterKegList: newMasterKegList
     })
-    console.log("After if: ")
-    console.table(this.state.masterKegList)
   }
 
   render() {
     let kegSelected = null;
 
     if (this.state.selectedKeg !== null) {
-      kegSelected = <KegDetail keg={this.state.selectedKeg} onClickingToEdit={this.handleClickingShowEdit} onEditSubmit={this.handleClickingEditSubmit} onClickingDelete={this.handleClickingDelete} />
+      kegSelected = <KegDetail keg={this.state.selectedKeg} onEditSubmit={this.handleClickingEditSubmit} onClickingDelete={this.handleClickingDelete} />
     }
     // KegList.forceUpdate(this.handleDrawingPint)
 
